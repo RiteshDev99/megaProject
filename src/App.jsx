@@ -1,9 +1,8 @@
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
-import authServices from "./appwrite/authServices.js";
+import authService from "./appwrite/authServices.js";
 import {login, logout} from './store/feature/auth/authSlice.js'
-import Header from "./components/header/Header.jsx";
-import Footer from "./components/footer/Footer.jsx";
+import {Header, Footer} from './components/index.js'
 
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    authServices.getCurrentUser()
+    authService.getCurrentUser()
         .then((userData)=>{
           if (userData){
             dispatch(login({userData}))
@@ -22,16 +21,15 @@ function App() {
         })
         .catch((error)=>{
             console.log("user not found", error)
-            setLoading(false)
         })
         .finally(()=>setLoading(false))
   },[])
 
 
   return !loading ?(
-              <div className='min-h-screen bg-gray-700 w-[100%] flex flex-wrap content-between justify-center'>
+      <div className='flex flex-col flex-wrap justify-between min-h-screen w-full items-center  bg-gray-700'>
                   <Header/>
-                  <min className="mincontainer bg-green-700 w-[100%]">
+                  <min>
                   </min>
                   <Footer/>
               </div>
