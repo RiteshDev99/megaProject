@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {Button, Input, Logo} from './index.js'
 import authServices from "../appwrite/authServices.js";

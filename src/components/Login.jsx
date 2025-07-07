@@ -26,10 +26,9 @@ const Login = () => {
             }
         }catch (error) {
             setError(error.message)
-
         }
     }
-
+    
     return (
         <div
             className='flex items-center justify-center w-full'
