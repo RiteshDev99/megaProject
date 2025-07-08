@@ -6,6 +6,7 @@ import LogoutBtn from "./header/logoutBtn.jsx";
 import Button from './ui/Button.jsx'
 import Input from './ui/Input.jsx'
 import Select from './ui/Select.jsx'
+import RTE from './RTE.jsx'
 export {
     Header,
     Footer,
@@ -15,4 +16,5 @@ export {
     Button,
     Select,
     Input,
+    RTE
 }
