@@ -30,6 +30,7 @@ function App() {
       <div className='flex flex-col flex-wrap justify-between min-h-screen w-full items-center  bg-gray-700'>
                   <Header/>
                   <min>
+                      
                   </min>
                   <Footer/>
               </div>

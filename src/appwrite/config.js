@@ -1,7 +1,7 @@
 import conf from '../conf/conf'
 import {Client, Databases, ID, Query, Storage} from "appwrite";
 
-class DatabaseService{
+class DatabaseService {
     client = new Client();
     databases;
     storage;
@@ -13,6 +13,8 @@ class DatabaseService{
         this.storage = new Storage(this.client);
     }
 
+    
+    
     async createPost ({title, slug, content, featureImage, status, userId}){
         try {
             return await this.databases.createDocument(
@@ -104,6 +106,7 @@ class DatabaseService{
     
     // file upload services
 
+    
     async uploadFile (file){
         try {
             return await this.storage.createFile(

@@ -1,7 +1,7 @@
 import dataBaseService from "../../appwrite/config.js";
 import {Link} from "react-router-dom";
 
-const Post = ({$id, title, featureImage}) => {
+const PostCard = ({$id, title, featureImage}) => {
     return (
         <Link to={`/post/${$id}`}>
             <div className='w-full bg-gray-100 rounded-xl p-4 '>
@@ -14,4 +14,4 @@ const Post = ({$id, title, featureImage}) => {
     )
 }
 
-export default Post
+export default PostCard
