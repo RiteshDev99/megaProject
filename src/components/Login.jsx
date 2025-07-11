@@ -1,10 +1,11 @@
 import {Button , Input, Logo} from './index.js'
-import authServices from "../appwrite/authServices.js";
+import authService from "../appwrite/authServices.js";
 import {login  as authLogin} from '../store/feature/auth/authSlice.js'
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -16,9 +17,9 @@ const Login = () => {
     const login = async (data) => {
         setError("")
         try {
-            const session = await  authServices.login(data)
+            const session = await  authService.login(data)
             if(session) {
-                const userData = await authServices.getCurrentUser()
+                const userData = await authService.getCurrentUser()
                 if(userData) {
                     dispatch(authLogin(userData));
                     navigate("/")
@@ -28,7 +29,7 @@ const Login = () => {
             setError(error.message)
         }
     }
-    
+
     return (
         <div
             className='flex items-center justify-center w-full'
