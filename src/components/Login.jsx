@@ -14,25 +14,23 @@ const Login = () => {
     const {register, handleSubmit}  = useForm()
     const [error , setError] = useState('')
 
-    const login = async (data) => {
+    const login = async(data) => {
         setError("")
         try {
-            const session = await  authService.login(data)
-            if(session) {
+            const session = await authService.login(data)
+            if (session) {
                 const userData = await authService.getCurrentUser()
-                if(userData) {
-                    dispatch(authLogin(userData));
-                    navigate("/")
-                }
+                if(userData) dispatch(authLogin(userData));
+                navigate("/")
             }
-        }catch (error) {
+        } catch (error) {
             setError(error.message)
         }
     }
 
     return (
         <div
-            className='flex items-center justify-center w-full'
+            className='flex items-center justify-center min-w-[100vw]'
         >
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">

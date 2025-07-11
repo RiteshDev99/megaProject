@@ -14,10 +14,10 @@ export class AuthService {
 
     async createAccount({email,password,name}){
         try {
-            const userAccount = await this.account.create(ID.unique(),email,password,name)
+            const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
                 // call anotherMethod
-                return this.login({email,password});
+                return this.login({email, password});
             } else {
                 return userAccount
             }
@@ -28,13 +28,11 @@ export class AuthService {
 
     }
 
-    async login({email,password}){
+    async login({email, password}) {
         try {
-            return await this.account.createEmailPasswordSession({email,password});
-
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
-            console.log("appwrite service :: login :: error", error);
-
+            console.log("appwrite service :: Login :: error", error);
         }
     }
 
@@ -60,6 +58,6 @@ export class AuthService {
 
 }
 
-const authservice = new AuthService
+const authService = new AuthService
 
-export default authservice
+export default authService
