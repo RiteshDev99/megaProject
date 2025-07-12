@@ -7,8 +7,10 @@ import {Container, Logo, LogoutBtn} from "../index.js";
 function Header() {
 
 
-    const authStatus = useSelector((state) => state.auth.status);
+    const authStatus = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
+
+    console.log("Header authStatus:", authStatus);
 
 
     const navItems = [
@@ -45,15 +47,15 @@ function Header() {
 
     return (
 
-        <header className="py-3 shadow bg-gray-500 w-[80%] my-3 rounded-lg">
+        <header className="py-3 shadow bg-gray-500 w-[85%] my-3 rounded-lg">
             <Container>
                 <nav className="flex items-center ">
                     <div className="mr-4">
                         <Link to="/" >
-                            <Logo width={"70px"}/>
+                            <Logo width={"70px"}  />
                         </Link>
                     </div>
-                    <ul  className="ml-auto flex">
+                    <ul  className="ml-auto flex items-center">
                         {navItems.map((item) =>
                             item.active ? (
                                 <li key={item.name}>
