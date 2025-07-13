@@ -5,8 +5,7 @@ import {Container, Logo, LogoutBtn} from "../index.js";
 
 
 function Header() {
-
-
+    
     const authStatus = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
 
@@ -47,7 +46,7 @@ function Header() {
 
     return (
 
-        <header className="py-3 shadow bg-gray-500 w-[85%] my-3 rounded-lg">
+        <header className="py-3 shadow bg-gray-500 w-[85%] my-3 rounded-2xl">
             <Container>
                 <nav className="flex items-center ">
                     <div className="mr-4">
@@ -62,7 +61,6 @@ function Header() {
                                     <button
                                         onClick={() => navigate(item.slug)}
                                         className="inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
-
                                     >
                                         {item.name}
                                     </button>
