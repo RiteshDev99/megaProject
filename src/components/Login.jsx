@@ -73,7 +73,7 @@ const Login = () => {
                         />
                         <Button
                             type="submit"
-                            className="w-full"
+                            className="w-full cursor-pointer hover:bg-[#ed6502] duration-200"
                         >Sign in</Button>
                     </div>
                 </form>

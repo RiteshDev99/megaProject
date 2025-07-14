@@ -1,7 +1,7 @@
 const Button = ({
                     children,
                     type = 'button',
-                    bgColor = 'bg-blue-600',
+                    bgColor = 'bg-[#eb7724]',
                     textColor = 'text-white',
                     className = '',
                     ...props

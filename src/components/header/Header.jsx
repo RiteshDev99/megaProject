@@ -4,12 +4,13 @@ import {Link, useNavigate} from "react-router-dom";
 import {Container, Logo, LogoutBtn} from "../index.js";
 
 
-function Header() {
-    
+function Header () {
+
     const authStatus = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
 
     console.log("Header authStatus:", authStatus);
+
 
 
     const navItems = [
@@ -60,7 +61,7 @@ function Header() {
                                 <li key={item.name}>
                                     <button
                                         onClick={() => navigate(item.slug)}
-                                        className="inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
+                                        className="inline-block px-6 py-2 duration-200 hover:bg-[#eb7724] hover:text-amber-50 rounded-full"
                                     >
                                         {item.name}
                                     </button>
