@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 import { Link } from "react-router-dom";
+import {logger} from "../utils/logger.js";
 
 
 const Login = () => {
@@ -19,8 +20,9 @@ const Login = () => {
         try {
             const session = await authService.login(data)
             if (session) {
-                const userData = await authService.getCurrentUser()
-                if(userData) dispatch(authLogin(userData));
+
+                const userData = await  authService.getCurrentUser()
+                if (userData)dispatch(authLogin(session));
                 navigate("/")
             }
         } catch (error) {

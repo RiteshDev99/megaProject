@@ -8,7 +8,7 @@ const LogoutBtn = () => {
 
     const logoutHandler = () => {
         authService.logout()
-            .then(() =>{
+            .then(() => {
                 dispatch(logout())
             })
             .catch((error)=>{

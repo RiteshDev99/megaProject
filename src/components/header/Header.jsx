@@ -2,6 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {Container, Logo, LogoutBtn} from "../index.js";
+import {logger} from "../../utils/logger.js";
 
 
 function Header () {
@@ -9,7 +10,8 @@ function Header () {
     const authStatus = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
 
-    console.log("Header authStatus:", authStatus);
+    logger.info("Header authStatus:", authStatus);
+
 
 
 
