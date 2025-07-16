@@ -71,7 +71,7 @@ function Header () {
                             ) : null
                         )}
                         {authStatus && (
-                            <li>
+                            <li className='px-6 py-2 hover:bg-[#eb7724] hover:text-amber-50 rounded-full'>
                                 <LogoutBtn/>
                             </li>
                         )}

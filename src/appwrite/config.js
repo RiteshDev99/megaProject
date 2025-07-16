@@ -1,5 +1,6 @@
 import conf from '../conf/conf'
 import {Client, Databases, ID, Query, Storage} from "appwrite";
+import {logger} from "../utils/logger.js";
 
 class DatabaseService {
     client = new Client();
@@ -13,8 +14,8 @@ class DatabaseService {
         this.storage = new Storage(this.client);
     }
 
-    
-    
+
+
     async createPost ({title, slug, content, featureImage, status, userId}){
         try {
             return await this.databases.createDocument(
@@ -31,12 +32,12 @@ class DatabaseService {
             )
 
         }catch(error){
-            console.log("Appwrite service :: createPost :: error", error);
+            logger.error("Appwrite service :: createPost :: error", error);
         }
 
     }
 
-    
+
     async updatePost ( slug,{title, content, featureImage, status}){
         try {
             return await this.databases.updateDocument(
@@ -52,12 +53,12 @@ class DatabaseService {
             )
 
         }catch(error){
-            console.log("Appwrite service :: updatePost :: error", error);
+            logger.error("Appwrite service :: updatePost :: error", error);
         }
 
     }
 
-    
+
     async deletePost ( slug) {
         try {
             await this.databases.deleteDocument(
@@ -67,12 +68,12 @@ class DatabaseService {
             )
             return true
         }catch(error){
-            console.log("Appwrite service :: deletePost :: error", error);
+            logger.error("Appwrite service :: deletePost :: error", error);
             return false;
         }
     }
 
-    
+
     async getPost ( slug) {
         try {
             return await this.databases.getDocument(
@@ -82,12 +83,12 @@ class DatabaseService {
             )
 
         }catch(error) {
-            console.log("Appwrite service :: get posts  :: error", error);
+            logger.error("Appwrite service :: get posts  :: error", error);
             return false;
         }
     }
 
-    
+
     async  getPots(queries = [Query.equal("status",
         "active")]){
         try{
@@ -98,15 +99,15 @@ class DatabaseService {
             )
 
         }catch(error){
-            console.log("Appwrite service :: get pots  :: error", error);
+            logger.error("Appwrite service :: get pots  :: error", error);
             return false;
         }
     }
 
-    
+
     // file upload services
 
-    
+
     async uploadFile (file){
         try {
             return await this.storage.createFile(
@@ -115,12 +116,12 @@ class DatabaseService {
                 file,
             )
         }catch(error) {
-            console.log("Appwrite service :: uploadFile :: error", error);
+            logger.error("Appwrite service :: uploadFile :: error", error);
             return false;
         }
     }
 
-    
+
     async deleteFile(fileId) {
         try {
             await this.storage.deleteFile(
@@ -129,12 +130,12 @@ class DatabaseService {
             )
             return true
         }catch (error) {
-            console.log("Appwrite service :: deleteFile :: error", error);
+            logger.error("Appwrite service :: deleteFile :: error", error);
             return false;
         }
     }
 
-    
+
     getFilePreview(fileId) {
         return this.storage.getFilePreview(
             conf.appwriteBucketId,
@@ -142,7 +143,7 @@ class DatabaseService {
         );
     }
 
-    
+
     async downloadFile(fileId) {
         try {
             this.storage.getFileDownload(
@@ -151,7 +152,7 @@ class DatabaseService {
             )
             return true;
         }catch(error) {
-            console.log("Appwrite service :: downloadFile :: error", error);
+            logger.error("Appwrite service :: downloadFile :: error", error);
             return false;
         }
     }
