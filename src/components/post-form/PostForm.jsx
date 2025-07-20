@@ -23,7 +23,7 @@ export default function PostForm({ post }) {
             const file = data.image[0] ? await dataBaseService.uploadFile(data.image[0]) : null;
 
             if (file) {
-                dataBaseService.deleteFile(post.featuredImage);
+                return dataBaseService.deleteFile(post.featuredImage);
             }
 
             const dbPost = await dataBaseService.updatePost(post.$id, {

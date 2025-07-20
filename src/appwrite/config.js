@@ -15,8 +15,7 @@ class DatabaseService {
     }
 
 
-
-    async createPost ({title, slug, content, featureImage, status, userId}){
+    async createPost({title,  content, featuredImage, slug,  status, userId}){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDataBaseId,
@@ -25,16 +24,14 @@ class DatabaseService {
                 {
                     title,
                     content,
-                    featureImage,
+                    featuredImage,
                     status,
                     userId,
                 }
             )
-
-        }catch(error){
-            logger.error("Appwrite service :: createPost :: error", error);
+        } catch (error) {
+            console.log("Appwrite  service :: createPost :: error", error);
         }
-
     }
 
 
@@ -74,15 +71,15 @@ class DatabaseService {
     }
 
 
-    async getPost ( slug) {
+    async getPost(slug) {
         try {
             return await this.databases.getDocument(
-                conf.appwriteCollectionId,
                 conf.appwriteDataBaseId,
+                conf.appwriteCollectionId,
                 slug,
             )
 
-        }catch(error) {
+        } catch(error) {
             logger.error("Appwrite service :: get posts  :: error", error);
             return false;
         }
@@ -93,8 +90,8 @@ class DatabaseService {
         "active")]){
         try{
             return await this.databases.listDocuments(
-                conf.appwriteCollectionId,
                 conf.appwriteDataBaseId,
+                conf.appwriteCollectionId,
                 queries
             )
 

@@ -23,7 +23,6 @@ export class AuthService {
             }
         } catch (error) {
             logger.error("appwrite service :: createAccount :: error", error);
-
         }
 
     }
